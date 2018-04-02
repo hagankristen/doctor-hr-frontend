@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 from pymodm import connect, errors
 import models
 import datetime
@@ -8,7 +10,9 @@ from main import check_tachycardia, calculate_interval_avg
 
 
 app = Flask(__name__)
-connect("mongodb://vcm-3580.vm.duke.edu:27017/heart_rate_app")
+CORS(app)
+comp_with_db = "mongodb://vcm-3580.vm.duke.edu:27017/heart_rate_app"
+connect(comp_with_db)
 
 
 @app.route("/api/heart_rate", methods=["POST"])
@@ -78,7 +82,8 @@ def get_heart_rates(user_email):
     try:
         user = models.User.objects.raw({"_id": user_email}).first()
         hi = {"user_email": user_email,
-              "recorded heart rates": user.heart_rate
+              "recorded_heart_rates": user.heart_rate,
+              "hr_times": user.heart_rate_times
               }
         return jsonify(hi), 200
     except errors.DoesNotExist:
