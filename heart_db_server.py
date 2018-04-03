@@ -96,10 +96,21 @@ def get_heart_rate_average(user_email):
     try:
         user = models.User.objects.raw({"_id": user_email}).first()
         hi = {"user_email": user_email,
-              "average of recorded heart rates":
+              "average_recorded_heart_rates":
               sum(user.heart_rate)/len(user.heart_rate)
               }
         return jsonify(hi), 200
     except errors.DoesNotExist:
         data = {"message": 'User does not exist.'}
+        return jsonify(data), 400
+
+@app.route("/api/heart_rate/userlist", methods=["GET"])
+def get_userlist():
+    try:
+        db.getUsers()
+        hi = {"user_emails": 1,
+        }
+        return jsonify(hi), 200
+    except UnknownError:
+        data = {"message": 'Problem getting list.'}
         return jsonify(data), 400

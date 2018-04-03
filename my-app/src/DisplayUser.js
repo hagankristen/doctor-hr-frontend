@@ -4,7 +4,8 @@ import Button from 'material-ui/Button';
 import axios from 'axios';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
-var geturl = "http://127.0.0.1:5000/api/heart_rate/"
+var gethrurl = "http://127.0.0.1:5000/api/heart_rate/"
+var getavgurl = "http://127.0.0.1:5000/api/heart_rate/average/"
 var styles = {
 	"dataStyle": {
 		"marginTop": "15px",
@@ -22,6 +23,7 @@ class DisplayUser extends React.Component {
 			"user_email": "User email has not been input.",
 			"heart_rates": [],
 			"times": [],
+			"average": []
 		}
 	}
 
@@ -32,27 +34,34 @@ class DisplayUser extends React.Component {
 
   	onButtonClick = (event) => {
 
-  		axios.get(geturl + this.state.nameTextField).then( (response) => {
+  		axios.get(gethrurl + this.state.nameTextField).then( (response) => {
   					console.log(response.status);
   					console.log(response);
   					this.setState({"user_email": response.data.user_email});
   					this.setState({"heart_rates": response.data.recorded_heart_rates});
 						this.setState({"times": response.data.hr_times});
   		})
+
+			axios.get(getavgurl + this.state.nameTextField).then( (response) => {
+						console.log(response.status);
+						console.log(response);
+						this.setState({"average": response.data.average_recorded_heart_rates});
+
+			})
+
   	}
 
   	render() {
 
 			var output = this.state.heart_rates.map( (e,i) => {
 				return(
-					<TableRow key={this.state.times}>
+					<TableRow key={this.state.times[i]}>
 						<TableCell>{e}</TableCell>
 						<TableCell>{this.state.times[i]}</TableCell>
 					</TableRow>
 				)
 			}
 		)
-			//e is one element in heart rate array adn i is an index that corresponds to that element
 
   		return (
 				<div>
@@ -61,6 +70,7 @@ class DisplayUser extends React.Component {
   					style={styles.dataStyle}
   					value={this.state.nameTextField}
   					onChange={this.onNameTextFieldChange}/>
+
   				<Button variant="raised" onClick={this.onButtonClick} style={styles.dataStyle}>
   					<div style={styles.dataStyle}>
   					GET
@@ -71,8 +81,8 @@ class DisplayUser extends React.Component {
 					<Table>
 							<TableHead>
 								<TableRow>
-									<TableCell>User: </TableCell>
-									<TableCell>{this.state.user_email}</TableCell>
+									<TableCell>Average Recorded Heart Rate</TableCell>
+									<TableCell>{this.state.average}</TableCell>
 								</TableRow>
 								<TableRow>
 									<TableCell>Heart Rate</TableCell>
@@ -83,6 +93,7 @@ class DisplayUser extends React.Component {
 					 </Table>
 
         </div>
+
 				</div>
     		);
     	}
