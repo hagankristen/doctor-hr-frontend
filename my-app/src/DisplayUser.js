@@ -55,7 +55,7 @@ class DisplayUser extends React.Component {
 
 			var output = this.state.heart_rates.map( (e,i) => {
 				return(
-					<TableRow key={this.state.times[i]}>
+					<TableRow key={i}>
 						<TableCell>{e}</TableCell>
 						<TableCell>{this.state.times[i]}</TableCell>
 					</TableRow>
