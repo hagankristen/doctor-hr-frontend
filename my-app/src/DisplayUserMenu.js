@@ -95,12 +95,12 @@ class DisplayUser extends React.Component {
 					<Table>
 							<TableHead>
 								<TableRow>
-									<TableCell>Average Recorded Heart Rate:</TableCell>
-									<TableCell>{this.state.average} (bpm) </TableCell>
+									<TableCell>Average Recorded Heart Rate (bpm):</TableCell>
+									<TableCell>{this.state.average}</TableCell>
 								</TableRow>
 								<TableRow>
-									<TableCell>Heart Rate (bpm)</TableCell>
-									<TableCell>Recorded Time</TableCell>
+									<TableCell>Heart Rate (bpm):</TableCell>
+									<TableCell>Recorded Time:</TableCell>
 								</TableRow>
 							</TableHead>
 						 <TableBody>{output}</TableBody>
