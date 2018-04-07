@@ -29,7 +29,8 @@ class DisplayUser extends React.Component {
 			"heart_rates": [],
 			"times": [],
 			"average": [],
-			"user_list": []
+			"user_list": [],
+			"age": [],
 		}
 		this.createUserList()
 	}
@@ -52,6 +53,8 @@ class DisplayUser extends React.Component {
   					console.log(response);
   					this.setState({"heart_rates": response.data.recorded_heart_rates});
 						this.setState({"times": response.data.hr_times});
+						this.setState({"age": response.data.age});
+
   		})
 
 			axios.get(getavgurl + this.state.user_email).then( (response) => {
@@ -94,6 +97,10 @@ class DisplayUser extends React.Component {
 				<div>
 					<Table>
 							<TableHead>
+							<TableRow>
+								<TableCell>Age:</TableCell>
+								<TableCell>{this.state.age}</TableCell>
+							</TableRow>
 								<TableRow>
 									<TableCell>Average Recorded Heart Rate (bpm):</TableCell>
 									<TableCell>{this.state.average}</TableCell>
