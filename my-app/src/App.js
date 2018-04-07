@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import DisplayUser from './DisplayUser.js';
+import DisplayUser from './DisplayUserMenu.js';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
@@ -25,7 +25,7 @@ class App extends React.Component {
               </Typography>
             </Toolbar>
           </AppBar>
-         <DisplayUser />
+         <DisplayUser/>
         </div>
 
     );
@@ -33,6 +33,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// in on click use axous with this.state.nameTextField (instead of log console)
-//value is what is displayed in text field (using render)
