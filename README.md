@@ -1,11 +1,12 @@
-# HeartRate Database Viewer - React Application 
-### doctor-hr-frontend
+# doctor-hr-frontend
+### HeartRate Database Viewer - React Application
 
 ##### Description: 
 This React Application retrieves and displays a selected patient's information- including age, average heart rate, and all documented heart rates and their recording times. To select a patient, use the dropdown menu of all patient email addresses saved in the database. The selection of an email address will complete and render the data table of heart rates and their corresponding recording times. Upon selection of a new patient, the data table of new information will render. 
 
-<img src="img/lightswitch.gif" height="300px"/> <img src="img/light-switch-cover.png" height="300px" /><img src="img/watchOS-lights-gif.gif" height="300px" />
-<img src="img/light-switch-cover-2.png" height="300px" />
+Example display images: 
+<img src="blankApp.JPG" height="300px"/> <img src="dropMenu.JPG" height="300px"/>
+<img src="patientDisp.JPG" height="300px" />
 
 ##### Installation: 
 Frontend application code using react to interact with codebase from repo called heart_rate_database_information BME590 Databases Assignment (which can be found [here](https://github.com/hagankristen/heart_rate_databases_introduction)). 
