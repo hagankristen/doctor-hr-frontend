@@ -2,6 +2,7 @@
 ### doctor-hr-frontend
 
 ##### Description: 
+This React Application retrieves and displays a selected patient's information- including age, average heart rate, and all documented heart rates and their recording times. To select a patient, use the dropdown menu of all patient email addresses saved in the database. The selection of an email address will complete and render the data table of heart rates and their corresponding recording times. Upon selection of a new patient, the data table of new information will render. 
 
 <img src="img/lightswitch.gif" height="300px"/> <img src="img/light-switch-cover.png" height="300px" /><img src="img/watchOS-lights-gif.gif" height="300px" />
 <img src="img/light-switch-cover-2.png" height="300px" />
