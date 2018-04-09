@@ -22,10 +22,13 @@ FLASK_APP=heart_db_server.py flask run
 
 :eyes: Double check that API urls and VM address coincide and will connect properly. 
 
+Clone this doctor-hr-frontend repo. 
 The final setup step requires installing NodeJS and ReactJS, refer to [this link] (https://github.com/mlp6/Medical-Software-Design/blob/master/Lectures/react/setup.md) for basic setup help. 
 
 Open the Node command line. This app uses components from Material IU, so install the dependencies by running: 
 ```
+cd doctor-hr-frontend
+cd my-app/
 npm install material-ui@next
 npm install axios 
 ```
